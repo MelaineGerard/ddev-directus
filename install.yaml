@@ -1,0 +1,5 @@
+name: directus
+
+pre_install_actions:
+project_files:
+- docker-compose.directus.yaml

@@ -1,0 +1,31 @@
+# ddev-generated
+services:
+  directus:
+    container_name: ddev-${DDEV_SITENAME}-directus
+    image: directus/directus:10.10.4
+    restart: "no"
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    expose:
+      - "8055"
+    environment:
+      - ADMIN_EMAIL="admin@ddev.site"
+      - ADMIN_PASSWORD="localadmin"
+      - VIRTUAL_HOST=$DDEV_HOSTNAME
+      - HTTP_EXPOSE=8054:8055
+      - HTTPS_EXPOSE=8055:8055
+      - KEY=ddev-key
+      - SECRET=ddev-secret
+    volumes:
+      - ".:/mnt/ddev_config"
+      - "directus:/directus"
+    healthcheck:
+      test: wget --no-verbose --tries=1 --spider http://localhost:8055/server/health || exit 1
+      start_period: 15s
+      interval: 15s
+      timeout: 15s
+      retries: 3
+
+volumes:
+  directus:
