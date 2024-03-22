@@ -4,6 +4,10 @@
 
 This repository allows you to quickly install Directus into a [DDEV](https://ddev.readthedocs.io) project using `ddev get MelaineGerard/ddev-directus`.
 
+## What is Directus
+
+[Directus](https://directus.io/) is an Open Source Headless CMS for managing SQL database content. It's a nice tool to use as a backend for all your frontend applications.
+
 ## Installation
 
 ```
@@ -22,3 +26,7 @@ This Directus recipe for [DDEV](https://ddev.readthedocs.io) installs a [`.ddev/
 * Credentials are `admin@ddev.site` and `localadmin`.
 
   Your can customize the default credentials in the [docker-compose.directus.yaml](docker-compose.directus.yaml) by editing the `ADMIN_EMAIL` and `ADMIN_PASSWORD` variables.
+
+## Maintained By
+
+- [Melaine gérard](https://github.com/MelaineGerard)
