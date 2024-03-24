@@ -27,6 +27,26 @@ This Directus recipe for [DDEV](https://ddev.readthedocs.io) installs a [`.ddev/
 
   Your can customize the default credentials in the [docker-compose.directus.yaml](docker-compose.directus.yaml) by editing the `ADMIN_EMAIL` and `ADMIN_PASSWORD` variables.
 
+## How to use this project in a fresh project
+
+```bash
+# 1. Create an empty project
+mkdir simple-php-project
+cd simple-php-project
+# 2. Create a simple Hello, World in this folder
+echo "<?php echo 'Hello, World!'; ?>" > index.php
+# 3. Init ddev in the project
+ddev config
+# 4. Add Directus in the project
+ddev get MelaineGerard/ddev-directus
+# 5. Start the project
+ddev start
+# Directus should now be started on port 8055 of your project
+```
+
+Example url : [https://simple-php-project.ddev.site:8055](https://simple-php-project.ddev.site:8055)
+
+
 ## Maintained By
 
 - [Melaine gérard](https://github.com/MelaineGerard)
