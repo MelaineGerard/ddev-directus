@@ -2,7 +2,12 @@
 services:
   directus:
     container_name: ddev-${DDEV_SITENAME}-directus
-    image: directus/directus:10.10.4
+    build:
+      context: .
+      dockerfile: ./directus.Dockerfile
+      args:
+        uid: $DDEV_UID
+        gid: $DDEV_GID
     restart: "no"
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
