@@ -3,3 +3,11 @@ name: directus
 pre_install_actions:
 project_files:
 - docker-compose.directus.yaml
+- directus.Dockerfile
+post_install_actions:
+  - |
+    #ddev-nodisplay
+    mkdir -p directus/database
+    mkdir -p directus/uploads
+    mkdir -p directus/extensions
+    printf "\ndirectus/\n" >> .gitignore

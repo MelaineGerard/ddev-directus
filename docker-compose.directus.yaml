@@ -1,8 +1,13 @@
-# ddev-generated
+#ddev-generated
 services:
   directus:
     container_name: ddev-${DDEV_SITENAME}-directus
-    image: directus/directus:10.10.4
+    build:
+      context: .
+      dockerfile: ./directus.Dockerfile
+      args:
+        uid: $DDEV_UID
+        gid: $DDEV_GID
     restart: "no"
     labels:
       com.ddev.site-name: ${DDEV_SITENAME}
@@ -17,15 +22,16 @@ services:
       - HTTPS_EXPOSE=8055:8055
       - KEY=ddev-key
       - SECRET=ddev-secret
+      - DB_CLIENT=sqlite3
+      - DB_FILENAME=/directus/database/data.db
     volumes:
       - ".:/mnt/ddev_config"
-      - "directus:/directus"
+      - "./directus/database:/directus/database:rw"
+      - "./directus/uploads:/directus/uploads:rw"
+      - "./directus/extensions:/directus/extensions:rw"
     healthcheck:
       test: wget --no-verbose --tries=1 --spider http://localhost:8055/server/health || exit 1
       start_period: 15s
       interval: 15s
       timeout: 15s
       retries: 3
-
-volumes:
-  directus:
