@@ -10,7 +10,15 @@ This repository allows you to quickly install Directus into a [DDEV](https://dde
 
 ## Installation
 
+For DDEV v1.23.5 or above run
+
+```sh
+ddev add-on get MelaineGerard/ddev-directus && ddev restart
 ```
+
+For earlier versions of DDEV run
+
+```sh
 ddev get MelaineGerard/ddev-directus && ddev restart
 ```
 
@@ -38,7 +46,7 @@ echo "<?php echo 'Hello, World!'; ?>" > index.php
 # 3. Init ddev in the project
 ddev config
 # 4. Add Directus in the project
-ddev get MelaineGerard/ddev-directus
+ddev add-on get MelaineGerard/ddev-directus #or ddev get MelaineGerard/ddev-directus for older versions of DDEV
 # 5. Start the project
 ddev start
 # Directus should now be started on port 8055 of your project
