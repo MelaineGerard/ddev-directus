@@ -1,6 +1,6 @@
 #ddev-generated
 
-FROM directus/directus:10.10.5
+FROM directus/directus:11.17.3
 
 ARG uid
 ARG gid
